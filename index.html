@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understandable - Making AI understandable, accessible, and actionable for every business. Expert AI consultancy for practical, efficient solutions.">
+    <meta name="keywords" content="AI consultancy, artificial intelligence, AI solutions, machine learning, LLM, generative AI, AI strategy">
+    <meta name="author" content="Understandable">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Understandable - AI Consultancy">
+    <meta property="og:description" content="Making AI understandable, accessible, and actionable for every business.">
+    <meta property="og:url" content="">
+    
+    <title>Understandable - AI Consultancy That Makes Sense</title>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Inline theme script to prevent flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="#home" class="logo" aria-label="Understandable Home">
+                    <span class="logo__text">Understandable</span>
+                    <span class="logo__accent">AI</span>
+                </a>
+            </div>
+            
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#how-it-works" class="nav__link">How It Works</a></li>
+                    <li class="nav__item"><a href="#why-us" class="nav__link">Why Us</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle__icon">🌙</span>
+                </button>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        AI That Makes <span class="hero__accent">Sense</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Making AI understandable, accessible, and actionable for every business.
+                    </p>
+                    <p class="hero__description">
+                        We cut through the AI hype to deliver practical, efficient solutions that solve real business problems. No jargon. No complexity. Just results.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#contact" class="btn btn--primary btn--large">Get Started</a>
+                        <a href="#services" class="btn btn--secondary btn--large">Explore Services</a>
+                    </div>
+                    
+                    <div class="hero__stats">
+                        <div class="stat">
+                            <div class="stat__value">Weeks</div>
+                            <div class="stat__label">Not Months</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__value">100%</div>
+                            <div class="stat__label">Transparent</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__value">Global</div>
+                            <div class="stat__label">Remote-First</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero__visual">
+                    <div class="ai-visual">
+                        <div class="ai-visual__circle ai-visual__circle--1"></div>
+                        <div class="ai-visual__circle ai-visual__circle--2"></div>
+                        <div class="ai-visual__circle ai-visual__circle--3"></div>
+                        <div class="ai-visual__core">
+                            <span class="ai-visual__icon">🤖</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Value Propositions -->
+        <section class="values">
+            <div class="container">
+                <div class="values__grid">
+                    <div class="value-card">
+                        <div class="value-card__icon">💡</div>
+                        <h3 class="value-card__title">Clarity</h3>
+                        <p class="value-card__description">
+                            We explain complex AI concepts in simple, actionable terms
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-card__icon">⚡</div>
+                        <h3 class="value-card__title">Efficiency</h3>
+                        <p class="value-card__description">
+                            We deliver results quickly without unnecessary complexity
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-card__icon">🚀</div>
+                        <h3 class="value-card__title">Pragmatism</h3>
+                        <p class="value-card__description">
+                            We focus on solutions that work in the real world, not just theory
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-card__icon">🤝</div>
+                        <h3 class="value-card__title">Partnership</h3>
+                        <p class="value-card__description">
+                            We work alongside you as collaborative partners, not distant vendors
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Our Services</h2>
+                    <p class="section-header__subtitle">
+                        From strategy to implementation, we cover the full AI journey
+                    </p>
+                </div>
+                
+                <div class="services__grid">
+                    <article class="service-card">
+                        <div class="service-card__icon">🗺️</div>
+                        <h3 class="service-card__title">AI Strategy & Roadmap</h3>
+                        <p class="service-card__description">
+                            Assess your AI readiness and create practical, phased implementation roadmaps aligned with business goals.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>AI Opportunity Assessment</li>
+                            <li>12-24 Month Roadmap</li>
+                            <li>Technology Recommendations</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-card__icon">🛠️</div>
+                        <h3 class="service-card__title">Custom AI Development</h3>
+                        <p class="service-card__description">
+                            Design and build tailored AI applications, ML models, and intelligent automation solutions.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Production-Ready Applications</li>
+                            <li>Trained ML Models</li>
+                            <li>API Integrations</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-card__icon">🤖</div>
+                        <h3 class="service-card__title">LLM & Generative AI</h3>
+                        <p class="service-card__description">
+                            Implement chatbots, virtual assistants, RAG systems, and custom GPT applications.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Conversational AI Systems</li>
+                            <li>Knowledge Base Integration</li>
+                            <li>Fine-Tuned Models</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-card__icon">⚙️</div>
+                        <h3 class="service-card__title">AI Workflow Automation</h3>
+                        <p class="service-card__description">
+                            Build intelligent workflow automation and AI-assisted decision-making systems.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Automated Workflow Systems</li>
+                            <li>Process Documentation</li>
+                            <li>ROI Analysis</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-card__icon">🔬</div>
+                        <h3 class="service-card__title">AI Proof of Concept</h3>
+                        <p class="service-card__description">
+                            Rapidly validate AI ideas with working prototypes in 2-4 weeks.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Working Prototype</li>
+                            <li>Feasibility Assessment</li>
+                            <li>Cost-Benefit Analysis</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service-card">
+                        <div class="service-card__icon">🎓</div>
+                        <h3 class="service-card__title">AI Training & Transfer</h3>
+                        <p class="service-card__description">
+                            Educate your team on AI fundamentals and build internal AI capabilities.
+                        </p>
+                        <ul class="service-card__features">
+                            <li>Customized Training Programs</li>
+                            <li>Workshop Materials</li>
+                            <li>Internal AI Playbooks</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">How We Work</h2>
+                    <p class="section-header__subtitle">
+                        A simple, transparent process from discovery to delivery
+                    </p>
+                </div>
+                
+                <div class="process">
+                    <div class="process-step">
+                        <div class="process-step__number">1</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Discovery Call</h3>
+                            <p class="process-step__description">
+                                30-60 minute free consultation to understand your needs, challenges, and goals.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-step__number">2</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Scoping & Proposal</h3>
+                            <p class="process-step__description">
+                                Detailed requirements gathering and clear proposal with timeline and pricing.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-step__number">3</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Development & Iteration</h3>
+                            <p class="process-step__description">
+                                Regular communication, demos, and feedback loops throughout development.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-step__number">4</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Delivery & Support</h3>
+                            <p class="process-step__description">
+                                Complete documentation, training, deployment support, and optimization.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us -->
+        <section class="why-us" id="why-us">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Why Choose Understandable</h2>
+                    <p class="section-header__subtitle">
+                        We're not like the others
+                    </p>
+                </div>
+                
+                <div class="differentiators">
+                    <div class="differentiator">
+                        <div class="differentiator__icon">🚫🗣️</div>
+                        <h3 class="differentiator__title">No Jargon Zone</h3>
+                        <p class="differentiator__description">
+                            We speak your language, not just tech-speak
+                        </p>
+                    </div>
+                    
+                    <div class="differentiator">
+                        <div class="differentiator__icon">⚡</div>
+                        <h3 class="differentiator__title">Rapid Prototyping</h3>
+                        <p class="differentiator__description">
+                            See results in weeks, not months
+                        </p>
+                    </div>
+                    
+                    <div class="differentiator">
+                        <div class="differentiator__icon">🎓</div>
+                        <h3 class="differentiator__title">Knowledge Transfer</h3>
+                        <p class="differentiator__description">
+                            We empower your team, not just deliver solutions
+                        </p>
+                    </div>
+                    
+                    <div class="differentiator">
+                        <div class="differentiator__icon">✅</div>
+                        <h3 class="differentiator__title">Honest Assessment</h3>
+                        <p class="differentiator__description">
+                            We'll tell you when AI isn't the answer
+                        </p>
+                    </div>
+                    
+                    <div class="differentiator">
+                        <div class="differentiator__icon">🔄</div>
+                        <h3 class="differentiator__title">End-to-End Support</h3>
+                        <p class="differentiator__description">
+                            From strategy to implementation to optimization
+                        </p>
+                    </div>
+                    
+                    <div class="differentiator">
+                        <div class="differentiator__icon">🎯</div>
+                        <h3 class="differentiator__title">Boutique Expertise</h3>
+                        <p class="differentiator__description">
+                            Enterprise-grade results without the overhead
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">What Our Clients Say</h2>
+                    <p class="section-header__subtitle">
+                        Real results from real partnerships
+                    </p>
+                </div>
+                
+                <div class="testimonials__grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__content">
+                            <div class="testimonial-card__quote">
+                                "Working with Understandable transformed our approach to AI. They took our complex data challenges and delivered a custom LLM solution that reduced our operational overhead by 40%. No jargon, just results."
+                            </div>
+                            <div class="testimonial-card__author">
+                                <div class="testimonial-card__avatar">
+                                    <span class="testimonial-card__initials">SC</span>
+                                </div>
+                                <div class="testimonial-card__details">
+                                    <div class="testimonial-card__name">Sarah Chen</div>
+                                    <div class="testimonial-card__role">VP of Sales Operations</div>
+                                    <div class="testimonial-card__company">TechVision Solutions</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__content">
+                            <div class="testimonial-card__quote">
+                                "As a small studio, we needed AI solutions that were simple yet powerful. Understandable built us a smart client relationship system that tracks project history and preferences automatically. It's been a game changer for our repeat business."
+                            </div>
+                            <div class="testimonial-card__author">
+                                <div class="testimonial-card__avatar">
+                                    <span class="testimonial-card__initials">EM</span>
+                                </div>
+                                <div class="testimonial-card__details">
+                                    <div class="testimonial-card__name">Elena Martinez</div>
+                                    <div class="testimonial-card__role">Studio Director</div>
+                                    <div class="testimonial-card__company">Urban Design Studio</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <div class="testimonial-card__content">
+                            <div class="testimonial-card__quote">
+                                "The POC process was eye-opening. In just 3 weeks, Understandable showed us what was possible with generative AI for our industry. Their honest assessment saved us from making a costly mistake and pointed us toward a better solution."
+                            </div>
+                            <div class="testimonial-card__author">
+                                <div class="testimonial-card__avatar">
+                                    <span class="testimonial-card__initials">MT</span>
+                                </div>
+                                <div class="testimonial-card__details">
+                                    <div class="testimonial-card__name">Michael Torres</div>
+                                    <div class="testimonial-card__role">Chief Technology Officer</div>
+                                    <div class="testimonial-card__company">NextGen Robotics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Tech Stack -->
+        <section class="tech-stack">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Technologies We Master</h2>
+                    <p class="section-header__subtitle">
+                        Cutting-edge AI tools and platforms
+                    </p>
+                </div>
+                
+                <div class="tech-categories">
+                    <div class="tech-category">
+                        <h3 class="tech-category__title">Large Language Models</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Anthropic</span>
+                            <span class="tech-tag">Google Gemini</span>
+                            <span class="tech-tag">Llama</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3 class="tech-category__title">Machine Learning</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">scikit-learn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3 class="tech-category__title">AI Orchestration</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">LlamaIndex</span>
+                            <span class="tech-tag">Semantic Kernel</span>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3 class="tech-category__title">Vector Databases</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Pinecone</span>
+                            <span class="tech-tag">Weaviate</span>
+                            <span class="tech-tag">Chroma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta" id="contact">
+            <div class="container">
+                <div class="cta__content">
+                    <h2 class="cta__title">Ready to Make AI Work for You?</h2>
+                    <p class="cta__description">
+                        Let's have a conversation about your AI needs. No sales pitch, just honest advice.
+                    </p>
+                    <div class="cta__actions">
+                        <a href="mailto:hello@understandable.ai" class="btn btn--primary btn--large">Get In Touch</a>
+                        <a href="#services" class="btn btn--secondary btn--large">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <span class="logo__text">Understandable</span>
+                        <span class="logo__accent">AI</span>
+                    </div>
+                    <p class="footer__tagline">
+                        Making AI understandable, accessible, and actionable.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Services</h3>
+                        <ul class="footer__list">
+                            <li><a href="#services" class="footer__link">AI Strategy</a></li>
+                            <li><a href="#services" class="footer__link">Custom Development</a></li>
+                            <li><a href="#services" class="footer__link">LLM Solutions</a></li>
+                            <li><a href="#services" class="footer__link">AI Training</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="#why-us" class="footer__link">Why Us</a></li>
+                            <li><a href="#how-it-works" class="footer__link">How We Work</a></li>
+                            <li><a href="#contact" class="footer__link">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Connect</h3>
+                        <ul class="footer__list">
+                            <li><a href="mailto:hello@understandable.ai" class="footer__link">Email</a></li>
+                            <li><a href="#" class="footer__link">LinkedIn</a></li>
+                            <li><a href="#" class="footer__link">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 Understandable. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+
