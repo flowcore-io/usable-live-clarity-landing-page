@@ -1,5 +1,5 @@
 /**
- * Understandable Landing Page - Main JavaScript
+ * Clarity Case Study Landing Page - Main JavaScript
  * Vanilla JavaScript for theme management, navigation, and interactions
  * Following Orlando design principles
  */
@@ -417,7 +417,7 @@ function initializeApp() {
   new PerformanceOptimizer();
   new AnalyticsManager();
   
-  console.log('✨ Understandable landing page initialized');
+  console.log('✨ Clarity Case Study landing page initialized');
 }
 
 // ===================================================================

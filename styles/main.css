@@ -1,5 +1,5 @@
 /* ===================================================================
-   Understandable Landing Page Styles
+   Clarity Case Study Landing Page Styles
    Built with BEM Methodology and Orlando Design Principles
    =================================================================== */
 
@@ -92,6 +92,38 @@
   --z-index-modal: 1040;
   --z-index-popover: 1050;
   --z-index-tooltip: 1060;
+}
+
+/* ===================================================================
+   Site Banner (Orlando Notice)
+   =================================================================== */
+
+.site-banner {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.site-banner__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+}
+
+.site-banner__text {
+  font-size: var(--font-size-sm);
+}
+
+.site-banner__link {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.site-banner__link:hover,
+.site-banner__link:focus {
+  color: var(--color-primary-dark);
 }
 
 /* Dark Theme */

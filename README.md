@@ -1,7 +1,7 @@
-# Understandable AI Consultancy - Landing Page
+# Clarity Case Study - Landing Page
 
-A beautiful, accessible, and performant landing page for Understandable AI
-Consultancy, built with vanilla web technologies following the Orlando design
+A beautiful, accessible, and performant landing page for Clarity Case Study,
+built with vanilla web technologies following the Orlando design
 philosophy.
 
 ## 🎨 Design Philosophy
@@ -42,7 +42,7 @@ This landing page follows the **Orlando** design principles:
 ## 📁 Project Structure
 
 ```
-understandable-landing-page/
+clarity-case-study-landing-page/
 ├── index.html          # Main landing page
 ├── styles/
 │   └── main.css        # Complete stylesheet with BEM methodology
@@ -276,11 +276,11 @@ This project demonstrates:
 
 ## 📄 License
 
-© 2025 Understandable. All rights reserved.
+© 2025 Clarity Case Study. All rights reserved.
 
 ## 🤝 Contributing
 
-This is a private landing page for Understandable AI Consultancy. For questions
+This is a private landing page for Clarity Case Study. For questions
 or suggestions, contact the team.
 
 ## 📞 Contact
