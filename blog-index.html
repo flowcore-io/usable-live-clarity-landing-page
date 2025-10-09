@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clarity Case Study Blog - Insights, case studies, and practical AI guidance from our team of experts.">
+    <meta name="author" content="Clarity Case Study">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Clarity Case Study Blog - AI Insights & Case Studies">
+    <meta property="og:description" content="Practical AI guidance, case studies, and technical deep dives from the Clarity team.">
+    
+    <title>Blog - Clarity Case Study</title>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="site-banner" role="note" aria-label="Usable Orlando notice">
+        <div class="container site-banner__container">
+            <span class="site-banner__text">
+                This is a sample webpage built with
+                <a href="https://orlando.usable.dev" class="site-banner__link" target="_blank" rel="noopener">Usable Orlando</a>
+            </span>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html#home" class="logo" aria-label="Clarity Case Study Home">
+                    <span class="logo__text">Clarity Case Study</span>
+                    <span class="logo__accent">AI</span>
+                </a>
+            </div>
+            
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="index.html#how-it-works" class="nav__link">How It Works</a></li>
+                    <li class="nav__item"><a href="index.html#why-us" class="nav__link">Why Us</a></li>
+                    <li class="nav__item"><a href="blog-index.html" class="nav__link nav__link--active" aria-current="page">Blog</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle__icon">🌙</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <section class="blog-listing">
+            <div class="container">
+                <header class="blog-listing__header">
+                    <h1 class="blog-listing__title">Insights & Case Studies</h1>
+                    <p class="blog-listing__subtitle">
+                        Practical AI guidance, technical deep dives, and real-world case studies from the Clarity team.
+                    </p>
+                </header>
+                
+                <div class="blog-listing__grid">
+                    <article class="blog-card">
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">Oct 9, 2025</span>
+                                <span class="blog-card__divider" aria-hidden="true">•</span>
+                                <span class="blog-card__reading-time">8 min read</span>
+                            </div>
+                            
+                            <h2 class="blog-card__title">
+                                <a href="blog-2.html" class="blog-card__link">
+                                    Building Real-Time AI Analytics with Event Streams
+                                </a>
+                            </h2>
+                            
+                            <p class="blog-card__excerpt">
+                                Event-driven architecture enables real-time AI analytics that scales. Learn how to build responsive AI systems that process streaming data, make predictions in milliseconds, and adapt to changing patterns.
+                            </p>
+                            
+                            <div class="blog-card__tags">
+                                <span class="blog-card__tag">AI</span>
+                                <span class="blog-card__tag">Event Streams</span>
+                                <span class="blog-card__tag">Real-Time Analytics</span>
+                                <span class="blog-card__tag">Architecture</span>
+                            </div>
+                            
+                            <a href="blog-2.html" class="blog-card__read-more" aria-label="Read more about Building Real-Time AI Analytics with Event Streams">
+                                Read Article →
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <div class="blog-card__content">
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">Oct 9, 2025</span>
+                                <span class="blog-card__divider" aria-hidden="true">•</span>
+                                <span class="blog-card__badge blog-card__badge--draft">Draft</span>
+                            </div>
+                            
+                            <h2 class="blog-card__title">
+                                <a href="blog.html" class="blog-card__link">
+                                    How Acme Cut Read‑Model Rebuild Time by 70% with Flowcore
+                                </a>
+                            </h2>
+                            
+                            <p class="blog-card__excerpt">
+                                A practical, step-by-step look at how Acme reduced read‑model rebuild time by ~70% using Flowcore event streams and DuckDB—plus a reusable playbook you can apply today.
+                            </p>
+                            
+                            <div class="blog-card__tags">
+                                <span class="blog-card__tag">Case Study</span>
+                                <span class="blog-card__tag">Event Sourcing</span>
+                                <span class="blog-card__tag">Performance</span>
+                                <span class="blog-card__tag">DuckDB</span>
+                            </div>
+                            
+                            <a href="blog.html" class="blog-card__read-more" aria-label="Read more about How Acme Cut Read Model Rebuild Time by 70 percent with Flowcore">
+                                Read Article →
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <span class="logo__text">Clarity Case Study</span>
+                        <span class="logo__accent">AI</span>
+                    </div>
+                    <p class="footer__tagline">
+                        Making AI understandable, accessible, and actionable.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Services</h3>
+                        <ul class="footer__list">
+                            <li><a href="index.html#services" class="footer__link">AI Strategy</a></li>
+                            <li><a href="index.html#services" class="footer__link">Custom Development</a></li>
+                            <li><a href="index.html#services" class="footer__link">LLM Solutions</a></li>
+                            <li><a href="index.html#services" class="footer__link">AI Training</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="index.html#why-us" class="footer__link">Why Us</a></li>
+                            <li><a href="index.html#how-it-works" class="footer__link">How We Work</a></li>
+                            <li><a href="blog-index.html" class="footer__link" aria-current="page">Blog</a></li>
+                            <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Connect</h3>
+                        <ul class="footer__list">
+                            <li><a href="mailto:hello@clarity.usable.dev" class="footer__link">Email</a></li>
+                            <li><a href="#" class="footer__link">LinkedIn</a></li>
+                            <li><a href="#" class="footer__link">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 Clarity Case Study. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+

@@ -285,7 +285,7 @@ or suggestions, contact the team.
 
 ## 📞 Contact
 
-- **Email**: hello@understandable.ai
+- **Email**: hello@clarity.usable.dev
 - **Website**: [To be deployed]
 - **LinkedIn**: [Company page]
 - **GitHub**: [Open-source contributions]

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clarity Case Study Blog - Insights, case studies, and practical AI guidance.">
+    <meta name="author" content="Clarity Case Study">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How Acme Cut Read‑Model Rebuild Time by 70% with Flowcore — Draft">
+    <meta property="og:description" content="A practical, step-by-step look at how Acme reduced read‑model rebuild time by ~70% using Flowcore event streams and DuckDB.">
+    
+    <title>How Acme Cut Read‑Model Rebuild Time by 70% with Flowcore — Draft</title>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="site-banner" role="note" aria-label="Usable Orlando notice">
+        <div class="container site-banner__container">
+            <span class="site-banner__text">
+                This is a sample webpage built with
+                <a href="https://orlando.usable.dev" class="site-banner__link" target="_blank" rel="noopener">Usable Orlando</a>
+            </span>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html#home" class="logo" aria-label="Clarity Case Study Home">
+                    <span class="logo__text">Clarity Case Study</span>
+                    <span class="logo__accent">AI</span>
+                </a>
+            </div>
+            
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="index.html#how-it-works" class="nav__link">How It Works</a></li>
+                    <li class="nav__item"><a href="index.html#why-us" class="nav__link">Why Us</a></li>
+                    <li class="nav__item"><a href="blog/index.html" class="nav__link nav__link--active" aria-current="page">Blog</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle__icon">🌙</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <section class="blog">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header">
+                        <h1 class="blog-post__title">How Acme Cut Read‑Model Rebuild Time by 70% with Flowcore</h1>
+                        <div class="blog-post__meta">
+                            <span>Published: Oct 9, 2025</span>
+                            <span aria-hidden="true">•</span>
+                            <span>Status: Draft</span>
+                        </div>
+                    </header>
+                    <div class="blog-post__content">
+                        <p><strong>Summary:</strong> A practical, step-by-step look at how Acme reduced read‑model rebuild time by ~70% using Flowcore event streams and DuckDB—plus a reusable playbook you can apply today.</p>
+
+                        <h2>Executive Summary</h2>
+                        <p>Acme’s analytics team was spending too much time nursing fragile rebuilds and emergency migrations. By shifting to Flowcore’s event streams as the single source of truth and projecting to DuckDB for analytics, they cut read‑model rebuild time by ~70%, stabilized delivery, and freed engineers to ship features. In this post, you’ll see the architecture, results, and a hands-on playbook you can adapt immediately.</p>
+
+                        <h2>The Starting Point: Slow, Fragile Rebuilds</h2>
+                        <ul>
+                            <li>Long runtimes tied to brittle migration chains</li>
+                            <li>Inconsistent outcomes due to hotfix patches</li>
+                            <li>Delayed insights when rebuilds clashed with feature work</li>
+                            <li>Risky schema evolution that slowed teams down</li>
+                        </ul>
+                        <p><em>The business impact:</em> missed reporting windows, high ops overhead, and a growing fear of changes near month-end closes.</p>
+
+                        <h2>Architecture Shift: Events as Source of Truth, Fast Local Analytics</h2>
+                        <ul>
+                            <li>Use Flowcore events as the canonical record of “what happened”</li>
+                            <li>Project to DuckDB for read models and ad-hoc analytics</li>
+                            <li>Keep projector functions small, explicit, and retryable</li>
+                        </ul>
+                        <p>This reduced complexity at the data edges and made rebuilds predictable—no more surprise state quirks. DuckDB’s columnar engine brought fast, local-first analytics that worked great for iterative development and scheduled rebuilds alike.</p>
+
+                        <h2>Results: 70% Faster Rebuilds and Fewer Fire Drills</h2>
+                        <ul>
+                            <li>~70% reduction in rebuild time (hours → well under an hour in many cases)</li>
+                            <li>Stability in delivery windows (predictable nightly/weekly cycles)</li>
+                            <li>Fewer emergency migrations and late-night interventions</li>
+                            <li>More time for feature work—teams could confidently iterate on models</li>
+                        </ul>
+                        <p>Intangibles mattered too: clearer ownership boundaries (events in, projections out) and easier root-cause analysis when things went wrong.</p>
+
+                        <h2>The Playbook: Make This Work in Your Org</h2>
+                        <p>Treat the steps below as a checklist you can run this week. Start with a single high-value read model and expand once the pattern proves out.</p>
+
+                        <h3>1) Choose a Read Model and Define the Table</h3>
+                        <ul>
+                            <li>Pick one read model that causes recurrent pain (e.g., revenue by product, cohort metrics).</li>
+                            <li>Define a clear projection schema with typed columns and primary keys.</li>
+                            <li>Keep columns focused on consumer needs—avoid “kitchen sink” models.</li>
+                        </ul>
+
+                        <h3>2) Write a Small, Deterministic Projector</h3>
+                        <ul>
+                            <li>Map each event type to precise, idempotent updates (insert/update/accumulate).</li>
+                            <li>Handle nulls and unexpected fields gracefully; prefer guard clauses to complex nesting.</li>
+                            <li>Keep logic pure; avoid side effects so retries are safe.</li>
+                        </ul>
+
+                        <h3>3) Rebuild from Events on a Schedule</h3>
+                        <ul>
+                            <li>Create a job that replays events into DuckDB and materializes the read model.</li>
+                            <li>Use time-bucketed fetches to keep memory use predictable.</li>
+                            <li>Start with daily or weekly rebuilds; tighten cadence once stable.</li>
+                        </ul>
+
+                        <h3>4) Validate with SQL—Every Time</h3>
+                        <ul>
+                            <li>Add lightweight checks (row counts, sums, uniqueness constraints).</li>
+                            <li>Compare against an invariant or a known baseline to detect drift.</li>
+                            <li>Fail fast with actionable error messages (which event, what mutation, why).</li>
+                        </ul>
+
+                        <h3>5) Observe and Recover</h3>
+                        <ul>
+                            <li>Track projector throughput, errors by event type, and lag.</li>
+                            <li>When a projector fails, fix logic and re-run from the last good cursor.</li>
+                            <li>Maintain a small library of recovery scripts (reprocess bucket, backfill window).</li>
+                        </ul>
+
+                        <h3>6) Evolve Safely</h3>
+                        <ul>
+                            <li>Add new columns by extension (don’t mutate historical meaning).</li>
+                            <li>Version projector logic when semantics change; keep old derivations reproducible.</li>
+                            <li>Document assumptions (time zones, id strategy, aggregation windows).</li>
+                        </ul>
+
+                        <h2>Lessons Learned</h2>
+                        <ul>
+                            <li><strong>Simplicity scales.</strong> Small projector functions with explicit transforms beat “magic” frameworks that obscure failure modes.</li>
+                            <li><strong>Rebuilds are a feature, not a failure.</strong> If you can safely rebuild at will, you can move faster without fearing change.</li>
+                            <li><strong>Observability is non-negotiable.</strong> Basic metrics and targeted logs turn on-call from panic to procedure.</li>
+                            <li><strong>Scope your models.</strong> Build multiple focused read models rather than one monolith; they’ll rebuild faster and be easier to reason about.</li>
+                        </ul>
+
+                        <h2>What to Do Next</h2>
+                        <ul>
+                            <li>Try it on one model this week—define the table, write a projector, schedule a rebuild.</li>
+                            <li>Use SQL checks to gate promotion; publish when they pass.</li>
+                            <li>Once stable, roll the pattern out to your top-3 analytics use cases.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <span class="logo__text">Clarity Case Study</span>
+                        <span class="logo__accent">AI</span>
+                    </div>
+                    <p class="footer__tagline">
+                        Making AI understandable, accessible, and actionable.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Services</h3>
+                        <ul class="footer__list">
+                            <li><a href="index.html#services" class="footer__link">AI Strategy</a></li>
+                            <li><a href="index.html#services" class="footer__link">Custom Development</a></li>
+                            <li><a href="index.html#services" class="footer__link">LLM Solutions</a></li>
+                            <li><a href="index.html#services" class="footer__link">AI Training</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="index.html#why-us" class="footer__link">Why Us</a></li>
+                            <li><a href="index.html#how-it-works" class="footer__link">How We Work</a></li>
+                            <li><a href="blog/index.html" class="footer__link" aria-current="page">Blog</a></li>
+                            <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Connect</h3>
+                        <ul class="footer__list">
+                            <li><a href="mailto:hello@clarity.usable.dev" class="footer__link">Email</a></li>
+                            <li><a href="#" class="footer__link">LinkedIn</a></li>
+                            <li><a href="#" class="footer__link">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 Clarity Case Study. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+
+
