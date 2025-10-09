@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clarity Case Study Blog - How to build real-time AI analytics with event streams.">
+    <meta name="author" content="Clarity Case Study">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Building Real-Time AI Analytics with Event Streams">
+    <meta property="og:description" content="Learn how event-driven architecture enables real-time AI analytics at scale. A practical guide with lessons from production systems.">
+    
+    <title>Building Real-Time AI Analytics with Event Streams</title>
+    
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (systemDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="site-banner" role="note" aria-label="Usable Orlando notice">
+        <div class="container site-banner__container">
+            <span class="site-banner__text">
+                This is a sample webpage built with
+                <a href="https://orlando.usable.dev" class="site-banner__link" target="_blank" rel="noopener">Usable Orlando</a>
+            </span>
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">
+                <a href="index.html#home" class="logo" aria-label="Clarity Case Study Home">
+                    <span class="logo__text">Clarity Case Study</span>
+                    <span class="logo__accent">AI</span>
+                </a>
+            </div>
+            
+            <nav class="nav" aria-label="Main navigation">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="index.html#how-it-works" class="nav__link">How It Works</a></li>
+                    <li class="nav__item"><a href="index.html#why-us" class="nav__link">Why Us</a></li>
+                    <li class="nav__item"><a href="blog.html" class="nav__link nav__link--active" aria-current="page">Blog</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header__actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle__icon">🌙</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                    <span class="mobile-menu-toggle__line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <section class="blog">
+            <div class="container">
+                <article class="blog-post">
+                    <header class="blog-post__header">
+                        <h1 class="blog-post__title">Building Real-Time AI Analytics with Event Streams</h1>
+                        <div class="blog-post__meta">
+                            <span>Published: Oct 9, 2025</span>
+                            <span aria-hidden="true">•</span>
+                            <span>8 min read</span>
+                        </div>
+                    </header>
+                    <div class="blog-post__content">
+                        <p><strong>Summary:</strong> Event-driven architecture enables real-time AI analytics that scales. Learn how to build responsive AI systems that process streaming data, make predictions in milliseconds, and adapt to changing patterns—with practical patterns you can implement today.</p>
+
+                        <h2>The Challenge: AI That Waits Is AI That Fails</h2>
+                        <p>Traditional batch-based AI analytics suffer from a fundamental limitation: they're always looking in the rearview mirror. By the time your model processes yesterday's data and generates insights, the moment for action has passed.</p>
+                        
+                        <p>Real-time AI analytics powered by event streams changes this dynamic entirely. Instead of waiting for batch jobs, your AI systems react to events as they happen, making predictions and recommendations when they matter most.</p>
+
+                        <h2>Why Event Streams Are Perfect for AI Analytics</h2>
+                        <p>Event-driven architecture provides three critical advantages for AI systems:</p>
+                        
+                        <h3>1. Temporal Precision</h3>
+                        <p>Events capture <em>when</em> things happened, not just what happened. This temporal context is crucial for AI models that need to understand:</p>
+                        <ul>
+                            <li>Sequence and causality (did A cause B, or were they coincidental?)</li>
+                            <li>Time-based patterns (seasonality, trends, anomalies)</li>
+                            <li>Recency effects (recent events often matter more than historical ones)</li>
+                            <li>Temporal gaps (silence can be as meaningful as activity)</li>
+                        </ul>
+
+                        <h3>2. Incremental Processing</h3>
+                        <p>Rather than reprocessing entire datasets, event streams enable incremental updates:</p>
+                        <ul>
+                            <li>Update models with new observations as they arrive</li>
+                            <li>Maintain running aggregates and statistics efficiently</li>
+                            <li>Trigger predictions only when relevant events occur</li>
+                            <li>Scale horizontally by partitioning event streams</li>
+                        </ul>
+
+                        <h3>3. Decoupled Architecture</h3>
+                        <p>Event streams create clean boundaries between components:</p>
+                        <ul>
+                            <li>Data producers don't need to know about AI consumers</li>
+                            <li>Multiple AI models can consume the same events independently</li>
+                            <li>New analytics can be added without touching existing systems</li>
+                            <li>Replay events to train new models on historical data</li>
+                        </ul>
+
+                        <h2>Architecture Pattern: Event → Feature → Prediction</h2>
+                        <p>The most effective real-time AI systems follow a consistent three-stage pipeline:</p>
+
+                        <h3>Stage 1: Event Ingestion</h3>
+                        <p>Capture raw events with minimal transformation:</p>
+                        <ul>
+                            <li>Preserve original timestamps and ordering</li>
+                            <li>Validate schema and data types at ingestion</li>
+                            <li>Route events to appropriate processing streams</li>
+                            <li>Maintain event metadata (source, version, correlation IDs)</li>
+                        </ul>
+
+                        <h3>Stage 2: Feature Engineering</h3>
+                        <p>Transform events into AI-ready features in real-time:</p>
+                        <ul>
+                            <li>Calculate rolling windows and time-based aggregates</li>
+                            <li>Join events across multiple streams when needed</li>
+                            <li>Normalize and encode categorical variables</li>
+                            <li>Handle missing values and outliers consistently</li>
+                        </ul>
+
+                        <h3>Stage 3: Prediction and Action</h3>
+                        <p>Generate predictions and trigger downstream actions:</p>
+                        <ul>
+                            <li>Score events with pre-trained models</li>
+                            <li>Apply business rules and thresholds</li>
+                            <li>Emit prediction events for consumption</li>
+                            <li>Trigger alerts, recommendations, or automated actions</li>
+                        </ul>
+
+                        <h2>Real-World Example: Fraud Detection</h2>
+                        <p>Consider a real-time fraud detection system processing payment events:</p>
+
+                        <h3>Event Stream</h3>
+                        <p>Every payment attempt generates an event containing transaction details (amount, merchant, location, device, etc.). These events flow into a stream processed by multiple fraud detection models.</p>
+
+                        <h3>Feature Engineering in Motion</h3>
+                        <p>As each payment event arrives, the system calculates real-time features:</p>
+                        <ul>
+                            <li>Spending velocity: transactions in last 1 hour, 24 hours, 7 days</li>
+                            <li>Geographic anomalies: distance from previous transaction, unusual locations</li>
+                            <li>Behavioral patterns: typical merchant categories, average amounts</li>
+                            <li>Device fingerprints: known devices vs. new/suspicious ones</li>
+                        </ul>
+
+                        <h3>Multi-Model Ensemble</h3>
+                        <p>Several models consume these features in parallel:</p>
+                        <ul>
+                            <li><strong>Rule-based model</strong>: catches obvious fraud patterns instantly</li>
+                            <li><strong>Anomaly detector</strong>: flags transactions that deviate from user's history</li>
+                            <li><strong>Graph model</strong>: identifies suspicious networks of related accounts</li>
+                            <li><strong>Deep learning model</strong>: captures complex, non-linear patterns</li>
+                        </ul>
+
+                        <h3>Decision and Action</h3>
+                        <p>Results from all models combine into a fraud score:</p>
+                        <ul>
+                            <li>Low risk: approve immediately, no friction</li>
+                            <li>Medium risk: trigger step-up authentication</li>
+                            <li>High risk: block and alert the customer</li>
+                        </ul>
+                        <p>Total latency from event to decision: typically 100-300ms.</p>
+
+                        <h2>Implementation Best Practices</h2>
+
+                        <h3>1. Design for Late-Arriving Events</h3>
+                        <p>Real-world event streams are messy. Events can arrive out of order, or be delayed due to network issues, system downtime, or user behavior (offline mobile apps, for example).</p>
+                        <ul>
+                            <li>Use event timestamps, not processing timestamps</li>
+                            <li>Define explicit time windows with allowed lateness</li>
+                            <li>Handle retractions when late data changes computed results</li>
+                            <li>Emit watermarks to track processing progress</li>
+                        </ul>
+
+                        <h3>2. Maintain Feature Consistency</h3>
+                        <p>Training/serving skew is a killer for ML systems. Features calculated during training must match features calculated during inference.</p>
+                        <ul>
+                            <li>Use the same feature engineering code for training and serving</li>
+                            <li>Version feature transformations and track them with models</li>
+                            <li>Store feature values with predictions for debugging</li>
+                            <li>Monitor feature distributions in production vs. training</li>
+                        </ul>
+
+                        <h3>3. Handle Stateful Processing Carefully</h3>
+                        <p>Real-time AI often requires maintaining state (user profiles, running aggregates, model parameters). State management is tricky at scale.</p>
+                        <ul>
+                            <li>Partition state by key (user ID, session ID, etc.)</li>
+                            <li>Snapshot state periodically for recovery</li>
+                            <li>Use changelog events to reconstruct state after failures</li>
+                            <li>Consider state size and eviction policies</li>
+                        </ul>
+
+                        <h3>4. Build Observability In</h3>
+                        <p>Real-time systems fail in interesting ways. Observability is not optional.</p>
+                        <ul>
+                            <li>Emit metrics for every stage: ingestion rate, processing latency, error rates</li>
+                            <li>Track data quality: null rates, schema violations, anomalous distributions</li>
+                            <li>Log predictions with input features for debugging</li>
+                            <li>Monitor model performance: accuracy, calibration, concept drift</li>
+                        </ul>
+
+                        <h3>5. Plan for Model Updates</h3>
+                        <p>Models degrade over time. You need a strategy for continuous improvement.</p>
+                        <ul>
+                            <li>Collect ground truth labels asynchronously (when available)</li>
+                            <li>Evaluate model performance continuously on labeled data</li>
+                            <li>Automate retraining on recent data</li>
+                            <li>Deploy new models with canary releases and A/B testing</li>
+                            <li>Maintain model registries with versioning and lineage</li>
+                        </ul>
+
+                        <h2>Common Pitfalls to Avoid</h2>
+
+                        <h3>Over-Engineering for Peak Load</h3>
+                        <p>Don't optimize for the 99.9th percentile from day one. Start simple, measure actual usage patterns, then scale where it matters.</p>
+
+                        <h3>Ignoring Backpressure</h3>
+                        <p>If your AI models can't keep up with event rate, events will queue indefinitely. Implement backpressure mechanisms (rate limiting, load shedding, circuit breakers).</p>
+
+                        <h3>Skipping the Replay Strategy</h3>
+                        <p>You will need to replay events—for debugging, for retraining, for fixing bugs. Design this capability from the start, not as an afterthought.</p>
+
+                        <h3>Treating All Events Equally</h3>
+                        <p>Not all events need real-time processing. Use priority queues, separate streams, or batch processing for non-critical events.</p>
+
+                        <h2>Getting Started: A Minimal Implementation</h2>
+                        <p>Here's how to build your first real-time AI analytics system this week:</p>
+
+                        <h3>Day 1: Choose Your Event Stream</h3>
+                        <ul>
+                            <li>Pick one high-value event type (user actions, transactions, sensor readings)</li>
+                            <li>Ensure events have timestamps and stable schemas</li>
+                            <li>Verify you have historical data for training</li>
+                        </ul>
+
+                        <h3>Day 2: Build a Simple Feature Pipeline</h3>
+                        <ul>
+                            <li>Extract 3-5 meaningful features from raw events</li>
+                            <li>Calculate at least one time-based aggregate (rolling window)</li>
+                            <li>Store features alongside events for training</li>
+                        </ul>
+
+                        <h3>Day 3: Train a Baseline Model</h3>
+                        <ul>
+                            <li>Use historical events to create a training dataset</li>
+                            <li>Start with a simple model (logistic regression, decision tree)</li>
+                            <li>Measure offline performance (precision, recall, AUC)</li>
+                        </ul>
+
+                        <h3>Day 4: Deploy for Real-Time Scoring</h3>
+                        <ul>
+                            <li>Load model and apply to incoming events</li>
+                            <li>Emit prediction events to a new stream</li>
+                            <li>Log predictions and inputs for analysis</li>
+                        </ul>
+
+                        <h3>Day 5: Close the Loop</h3>
+                        <ul>
+                            <li>Connect predictions to downstream actions</li>
+                            <li>Collect ground truth labels when available</li>
+                            <li>Monitor model performance in production</li>
+                        </ul>
+
+                        <h2>Lessons from Production Systems</h2>
+                        <ul>
+                            <li><strong>Start with rules, graduate to ML.</strong> Rule-based systems are faster to build and easier to debug. Add ML when rules become too complex or miss patterns.</li>
+                            <li><strong>Latency budgets are non-negotiable.</strong> Define maximum allowed latency upfront (e.g., 200ms). Design your system to stay within budget even under load.</li>
+                            <li><strong>Simplicity scales.</strong> Complex feature engineering and model ensembles have their place, but start simple and add complexity only when justified by measurable gains.</li>
+                            <li><strong>Ownership matters.</strong> Someone needs to be responsible for monitoring model performance and triggering retraining. Make this explicit.</li>
+                            <li><strong>Document assumptions relentlessly.</strong> Future you (or future teammates) will thank you for documenting why features are calculated a certain way or why certain thresholds were chosen.</li>
+                        </ul>
+
+                        <h2>Next Steps</h2>
+                        <p>Real-time AI analytics isn't just for tech giants anymore. With modern event streaming platforms and accessible ML tools, small teams can build responsive AI systems in weeks, not months.</p>
+                        
+                        <p>Start with one use case—fraud detection, personalization, predictive maintenance, whatever creates immediate value—and prove the pattern works. Once you've built confidence in the approach, expand to other domains.</p>
+                        
+                        <p>The future of AI is real-time, event-driven, and incremental. The tools are here. The patterns are proven. Now it's your turn to build.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <div class="logo">
+                        <span class="logo__text">Clarity Case Study</span>
+                        <span class="logo__accent">AI</span>
+                    </div>
+                    <p class="footer__tagline">
+                        Making AI understandable, accessible, and actionable.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Services</h3>
+                        <ul class="footer__list">
+                            <li><a href="index.html#services" class="footer__link">AI Strategy</a></li>
+                            <li><a href="index.html#services" class="footer__link">Custom Development</a></li>
+                            <li><a href="index.html#services" class="footer__link">LLM Solutions</a></li>
+                            <li><a href="index.html#services" class="footer__link">AI Training</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Company</h3>
+                        <ul class="footer__list">
+                            <li><a href="index.html#why-us" class="footer__link">Why Us</a></li>
+                            <li><a href="index.html#how-it-works" class="footer__link">How We Work</a></li>
+                            <li><a href="blog.html" class="footer__link" aria-current="page">Blog</a></li>
+                            <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h3 class="footer__heading">Connect</h3>
+                        <ul class="footer__list">
+                            <li><a href="mailto:hello@clarity.usable.dev" class="footer__link">Email</a></li>
+                            <li><a href="#" class="footer__link">LinkedIn</a></li>
+                            <li><a href="#" class="footer__link">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    &copy; 2025 Clarity Case Study. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="scripts/main.js"></script>
+</body>
+</html>
+
