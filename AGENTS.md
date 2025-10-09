@@ -541,3 +541,68 @@ You'll know the CRM is working when:
 ---
 
 _Last Updated: 2025-10-02_ _Review Frequency: Quarterly_
+
+---
+
+# 🎫 Clarity Workspace - Ticket Management
+
+## Overview
+
+The **Clarity workspace** (ID: `4576f834-5735-4a26-a41d-cda3e30a4334`) is our AI
+consultancy firm's workspace for managing tickets, bug reports, feature
+requests, and customer-reported issues.
+
+## Workspace Details
+
+- **Workspace ID**: `4576f834-5735-4a26-a41d-cda3e30a4334`
+- **Name**: Clarity
+- **Description**: This is our amazing AI consultancy firm
+- **Status**: Active
+- **Your Role**: Owner
+
+## Fragment Type Mapping - Clarity
+
+The following fragment types are available in the Clarity workspace:
+
+- **Instruction Set**: `d6fe5018-a9ea-4849-a9e4-bc51ecb64bd5` - A set of
+  instructions for the LLM to perform a set of actions, like setting up a
+  project, installing a persona etc.
+- **Knowledge**: `ead65e3b-5866-4f48-a542-dffedd0ec7f5` - General information,
+  documentation, and reference material
+- **Recipe**: `a4e456c0-78d6-4924-9697-941eab3ccfef` - Step-by-step guides,
+  tutorials, and procedures
+- **Solution**: `a4dcff46-8bfc-4749-b04f-93e169bb5dc0` - Solutions to specific
+  problems and troubleshooting guides
+- **Template**: `45bea543-9e5c-46d8-97a4-07c753900cc6` - Reusable code patterns,
+  project templates, and boilerplates
+- **Tickets**: `ca4955ec-8301-4c64-805b-577638b4479a` - Bug reports, feature
+  requests, support issues, and customer-reported problems requiring resolution.
+  All tasks are prefixed with the ticket status, and the specific tickets are
+  updated accordingly as changes are made. When a ticket is complete, define the
+  solution if it is available.
+
+## Using the Tickets Fragment Type
+
+When creating tickets in the Clarity workspace:
+
+1. **Always use the Tickets fragment type ID**:
+   `ca4955ec-8301-4c64-805b-577638b4479a`
+2. **Prefix titles with ticket status**: `[OPEN]`, `[IN_PROGRESS]`, `[BLOCKED]`,
+   `[RESOLVED]`, `[CLOSED]`
+3. **Update status as work progresses**: Edit the fragment title to reflect
+   current status
+4. **Define solutions when complete**: When closing a ticket, document the
+   solution in the fragment content
+
+### Example Ticket Creation
+
+```
+Title: [OPEN] Fix navigation menu alignment on mobile
+Fragment Type ID: ca4955ec-8301-4c64-805b-577638b4479a
+Workspace ID: 4576f834-5735-4a26-a41d-cda3e30a4334
+Tags: ['bug', 'mobile', 'navigation', 'priority:high']
+```
+
+---
+
+_Last Updated: 2025-10-08_ _Review Frequency: As needed_
